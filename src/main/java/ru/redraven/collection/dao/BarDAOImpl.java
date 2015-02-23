@@ -27,15 +27,15 @@ public class BarDAOImpl implements BarDAO {
         if (bar.getIdBar() > 0) {
             // update
             String sql = "UPDATE bar SET name=?, date=?, weight=?, "
-                    + "additional=?, idfactory=?, idstandart=?  WHERE idbar=?";
+                    + "additional=?, idfactory=?  WHERE idbar=?";
             jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                    bar.getWeight(), bar.getAdditional(), bar.getIdFactory(), bar.getIdStandart(), bar.getIdBar());
+                    bar.getWeight(), bar.getAdditional(), bar.getIdFactory(), bar.getIdBar());
         } else {
             // insert
-            String sql = "INSERT INTO bar (name, date, weight, additional, idfactory, idstandart)"
+            String sql = "INSERT INTO bar (name, date, weight, additional, idfactory)"
                     + " VALUES (?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                    bar.getWeight(), bar.getAdditional(), bar.getIdFactory(), bar.getIdStandart());
+                    bar.getWeight(), bar.getAdditional(), bar.getIdFactory());
         }
     }
 

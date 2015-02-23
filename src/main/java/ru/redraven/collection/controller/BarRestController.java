@@ -12,16 +12,16 @@ import java.util.List;
 
 @RestController
 public class BarRestController {
-	@Autowired
-	private BarDAO barDAO;
+    @Autowired
+    private BarDAO barDAO;
 
-	@RequestMapping(value = BarRestURIConstants.GET_BAR, method = RequestMethod.GET)
-	public Bar getEmployee(@PathVariable("id") int idBar) {
-		return barDAO.get(idBar);
-	}
+    @RequestMapping(value = BarRestURIConstants.GET_BAR, method = RequestMethod.GET)
+    public Bar getEmployee(@PathVariable("id") int idBar) {
+        return barDAO.get(idBar);
+    }
 
-	@RequestMapping(value = BarRestURIConstants.GET_ALL_BAR, method = RequestMethod.GET)
-	public List<Bar> getEmployee() {
-		return barDAO.list();
-	}
+    @RequestMapping(value = BarRestURIConstants.GET_ALL_BAR, method = RequestMethod.GET)
+    public List<Bar> getEmployee() {
+        return barDAO.list();
+    }
 }

@@ -3,7 +3,7 @@ package ru.redraven.collection.config;
 /**
  * Created by Дмитрий on 22.02.2015.
  */
-import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,13 +16,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ru.redraven.collection.dao.BarDAO;
 import ru.redraven.collection.dao.BarDAOImpl;
 
+import javax.sql.DataSource;
+
 @Configuration
-@ComponentScan(basePackages= "ru.redraven.collection")
+@ComponentScan(basePackages = "ru.redraven.collection")
 @EnableWebMvc
-public class MvcConfiguration extends WebMvcConfigurerAdapter{
+public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
-    public ViewResolver getViewResolver(){
+    public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
