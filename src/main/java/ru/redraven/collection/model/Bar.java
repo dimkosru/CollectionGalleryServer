@@ -13,7 +13,7 @@ public class Bar implements Serializable {
     private Date date;
     private int weight;
     private String additional;
-    private int idFactory;
+    private Brand brand;
 
     public Bar() {
     }
@@ -58,11 +58,11 @@ public class Bar implements Serializable {
         this.additional = additional;
     }
 
-    public int getIdFactory() {
-        return idFactory;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setIdFactory(int idFactory) {
-        this.idFactory = idFactory;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 }

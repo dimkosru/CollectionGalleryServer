@@ -22,7 +22,6 @@
 
 </head>
 
-
 <body>
 <h2>Список шоколадок</h2>
 <table>
@@ -36,7 +35,7 @@
       <td>${bar.date}</td>
       <td>${bar.weight}</td>
       <td>${bar.additional}</td>
-      <td>${bar.idFactory}</td>
+      <td>${bar.brand.name}</td>
     <td><img src="http://localhost:8080/resources/${bar.idBar}.png" height="64" alt=""/></td>
     </tr>
   </c:forEach>
