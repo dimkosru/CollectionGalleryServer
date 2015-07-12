@@ -34,7 +34,7 @@ public class WebController {
     /*
      * AngularJs
      */
-    @RequestMapping(value = {BarWebURIConstants.ANGULARJS, "/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {BarWebURIConstants.ANGULARJS}, method = RequestMethod.GET)
     public String listBarsNg(ModelMap model) {
         return "angular";
     }
@@ -51,13 +51,15 @@ public class WebController {
     }
 
 
-
     /*
      * Сохранение шоколадки
      */
     @RequestMapping(value = {BarWebURIConstants.EDIT_BAR}, method = RequestMethod.POST)
     public String saveBar(@ModelAttribute("bar") @Valid Bar bar, BindingResult result, ModelMap model) {
-        barDAO.saveOrUpdate(bar);
+        if (bar.getId() > 0)
+            barDAO.update(bar);
+        else
+            barDAO.create(bar);
         model.addAttribute("success", "Шоколадка " + bar.getName() + " успешно сохранена");
         return "success";
     }

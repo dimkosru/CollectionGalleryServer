@@ -9,9 +9,10 @@ import java.util.List;
  */
 public interface BarDAO {
 
-    public void saveOrUpdate(Bar bar);
+    public boolean create(Bar bar);
+    public boolean update(Bar bar);
 
-    public void delete(int id);
+    public boolean delete(int id);
 
     public Bar get(int id);
 

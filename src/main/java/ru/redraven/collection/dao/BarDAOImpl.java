@@ -24,26 +24,25 @@ public class BarDAOImpl implements BarDAO {
     }
 
     @Override
-    public void saveOrUpdate(Bar bar) {
-        if (bar.getId() > 0) {
-            // update
-            String sql = "UPDATE bar SET name=?, date=?, weight=?, "
-                    + "additional=?, idfactory=?  WHERE idbar=?";
-            jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                    bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand(), bar.getId());
-        } else {
-            // insert
-            String sql = "INSERT INTO bar (name, date, weight, additional, idfactory)"
-                    + " VALUES (?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                    bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand());
-        }
+    public boolean update(Bar bar) {
+        String sql = "UPDATE bar SET name=?, date=?, weight=?, "
+                + "additional=?, idfactory=?  WHERE idbar=?";
+        return jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
+                bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand(), bar.getId()) != 0;
     }
 
     @Override
-    public void delete(int id) {
+    public boolean create(Bar bar) {
+        String sql = "INSERT INTO bar (name, date, weight, additional, idfactory)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
+                bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand()) != 0;
+    }
+
+    @Override
+    public boolean delete(int id) {
         String sql = "DELETE FROM bar WHERE idbar=?";
-        jdbcTemplate.update(sql, id);
+        return jdbcTemplate.update(sql, id) != 0;
     }
 
     @Override

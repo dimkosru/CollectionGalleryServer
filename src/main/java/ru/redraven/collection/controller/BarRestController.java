@@ -24,4 +24,21 @@ public class BarRestController {
     public List<Bar> getBars() {
         return barDAO.list();
     }
+
+    @RequestMapping(value = BarRestURIConstants.CREATE_BAR, method = RequestMethod.POST)
+    public void createBar(Bar bar) {
+        barDAO.create(bar);
+        // HTTP status code 201 Created for a successful PUT of a new resource, with URIs and metadata of the new resource echoed in the response body
+    }
+
+    @RequestMapping(value = BarRestURIConstants.UPDATE_BAR, method = RequestMethod.PUT)
+    public void updateBar(Bar bar) {
+        barDAO.update(bar);
+        // HTTP status code 200 OK for a successful PUT of an update to an existing resource. No response body needed.
+    }
+
+    @RequestMapping(value = BarRestURIConstants.DELETE_BAR, method = RequestMethod.DELETE)
+    public void deleteBar(@PathVariable("id") int id) {
+        barDAO.delete(id);
+    }
 }
