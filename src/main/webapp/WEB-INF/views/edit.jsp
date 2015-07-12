@@ -15,27 +15,21 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Редактирвоание шоколадки</title>
-
-  <style>
-
-    .error {
-      color: #ff0000;
-    }
-  </style>
+  <link rel="stylesheet" href="/resources/css/main.css"/>
 
 </head>
 
 <body>
 
-<h2>Edit Form</h2>
+<h2>Редактирование</h2>
 <form:form method="POST" modelAttribute="bar">
 
-  <img src="http://localhost:8080/resources/${bar.idBar}.png" height="500" alt=""/>
+  <img src="/resources/original/${bar.id}.png" height="500" alt=""/>
   <table>
     <tr>
-      <td><label for="idBar">idBar: </label> </td>
-      <td><form:input path="idBar" id="idBar"/></td>
-      <td><form:errors path="idBar" cssClass="error"/></td>
+      <td><label for="id">id: </label> </td>
+      <td><form:input path="id" id="id"/></td>
+      <td><form:errors path="id" cssClass="error"/></td>
     </tr>
 
     <tr>
@@ -63,9 +57,9 @@
     </tr>
 
     <tr>
-      <td><label for="idFactory">Изготовитель: </label> </td>
-      <td><form:input path="idFactory" id="idFactory"/></td>
-      <td><form:errors path="idFactory" cssClass="error"/></td>
+      <td><label for="brand">Изготовитель: </label> </td>
+      <td><form:input path="brand" id="brand"/></td>
+      <td><form:errors path="brand" cssClass="error"/></td>
     </tr>
 
     <tr>

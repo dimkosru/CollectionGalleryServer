@@ -25,12 +25,12 @@ public class BarDAOImpl implements BarDAO {
 
     @Override
     public void saveOrUpdate(Bar bar) {
-        if (bar.getIdBar() > 0) {
+        if (bar.getId() > 0) {
             // update
             String sql = "UPDATE bar SET name=?, date=?, weight=?, "
                     + "additional=?, idfactory=?  WHERE idbar=?";
             jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                    bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand(), bar.getIdBar());
+                    bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand(), bar.getId());
         } else {
             // insert
             String sql = "INSERT INTO bar (name, date, weight, additional, idfactory)"
@@ -41,14 +41,14 @@ public class BarDAOImpl implements BarDAO {
     }
 
     @Override
-    public void delete(int idBar) {
+    public void delete(int id) {
         String sql = "DELETE FROM bar WHERE idbar=?";
-        jdbcTemplate.update(sql, idBar);
+        jdbcTemplate.update(sql, id);
     }
 
     @Override
-    public Bar get(int idBar) {
-        String sql = "SELECT bar.idbar, bar.name, bar.date, bar.weight, bar.additional, factory.idfactory, factory.name FROM bar, factory WHERE bar.idfactory = factory.idfactory AND idbar=" + idBar;
+    public Bar get(int id) {
+        String sql = "SELECT bar.idbar, bar.name, bar.date, bar.weight, bar.additional, factory.idfactory, factory.name FROM bar, factory WHERE bar.idfactory = factory.idfactory AND idbar=" + id;
         return jdbcTemplate.query(sql, new ResultSetExtractor<Bar>() {
 
             @Override
@@ -56,7 +56,7 @@ public class BarDAOImpl implements BarDAO {
                     DataAccessException {
                 if (rs.next()) {
                     Bar bar = new Bar();
-                    bar.setIdBar(rs.getInt("bar.idbar"));
+                    bar.setId(rs.getInt("bar.idbar"));
                     bar.setName(rs.getString("bar.name"));
                     bar.setDate(rs.getDate("bar.date"));
                     bar.setWeight(rs.getInt("bar.weight"));
@@ -77,7 +77,7 @@ public class BarDAOImpl implements BarDAO {
             @Override
             public Bar mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Bar bar = new Bar();
-                bar.setIdBar(rs.getInt("idbar"));
+                bar.setId(rs.getInt("idbar"));
                 bar.setName(rs.getString("name"));
                 bar.setDate(rs.getDate("date"));
                 bar.setWeight(rs.getInt("weight"));

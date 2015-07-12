@@ -13,6 +13,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Подтверждение редатирования</title>
+  <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 <body>
 ${success}

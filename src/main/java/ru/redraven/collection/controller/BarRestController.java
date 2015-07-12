@@ -16,12 +16,12 @@ public class BarRestController {
     private BarDAO barDAO;
 
     @RequestMapping(value = BarRestURIConstants.GET_BAR, method = RequestMethod.GET)
-    public Bar getEmployee(@PathVariable("id") int idBar) {
-        return barDAO.get(idBar);
+    public Bar getBar(@PathVariable("id") int id) {
+        return barDAO.get(id);
     }
 
     @RequestMapping(value = BarRestURIConstants.GET_ALL_BAR, method = RequestMethod.GET)
-    public List<Bar> getEmployee() {
+    public List<Bar> getBars() {
         return barDAO.list();
     }
 }

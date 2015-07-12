@@ -11,9 +11,9 @@ public interface BarDAO {
 
     public void saveOrUpdate(Bar bar);
 
-    public void delete(int idBar);
+    public void delete(int id);
 
-    public Bar get(int idBar);
+    public Bar get(int id);
 
     public List<Bar> list();
 }

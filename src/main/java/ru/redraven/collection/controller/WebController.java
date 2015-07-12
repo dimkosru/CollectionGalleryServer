@@ -24,11 +24,19 @@ public class WebController {
      * Список всех шоколадок
      */
     @RequestMapping(value = {BarWebURIConstants.GET_ALL_BAR, "/"}, method = RequestMethod.GET)
-    public String listEmployees(ModelMap model) {
+    public String listBars(ModelMap model) {
 
         List<Bar> bars = barDAO.list();
         model.addAttribute("bars", bars);
         return "allbars";
+    }
+
+    /*
+     * AngularJs
+     */
+    @RequestMapping(value = {BarWebURIConstants.ANGULARJS, "/"}, method = RequestMethod.GET)
+    public String listBarsNg(ModelMap model) {
+        return "angular";
     }
 
 
@@ -36,8 +44,8 @@ public class WebController {
      * Редактирвоание шоколадки
      */
     @RequestMapping(value = {BarWebURIConstants.EDIT_BAR}, method = RequestMethod.GET)
-    public String editBar(@PathVariable("id") int idBar, ModelMap model) {
-        Bar bar = barDAO.get(idBar);
+    public String editBar(@PathVariable("id") int id, ModelMap model) {
+        Bar bar = barDAO.get(id);
         model.addAttribute("bar", bar);
         return "edit";
     }

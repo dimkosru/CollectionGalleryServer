@@ -8,7 +8,7 @@ import java.sql.Date;
  * Created by Дмитрий on 22.02.2015.
  */
 public class Bar implements Serializable {
-    private int idBar;
+    private int id;
     private String name;
     private Date date;
     private int weight;
@@ -18,12 +18,12 @@ public class Bar implements Serializable {
     public Bar() {
     }
 
-    public int getIdBar() {
-        return idBar;
+    public int getId() {
+        return id;
     }
 
-    public void setIdBar(int idBar) {
-        this.idBar = idBar;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

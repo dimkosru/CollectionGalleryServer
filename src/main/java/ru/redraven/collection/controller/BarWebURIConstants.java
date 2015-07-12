@@ -5,8 +5,9 @@ package ru.redraven.collection.controller;
  */
 public class BarWebURIConstants {
     public static final String GET_ALL_BAR = "/bars";
-    public static final String GET_BAR = "/bar/{id}";
-    public static final String EDIT_BAR = "/bar/edit/{id}";
-    public static final String CREATE_BAR = "/bar/create";
-    public static final String DELETE_BAR = "/bar/delete/{id}";
+    public static final String ANGULARJS = "/ng";
+    public static final String GET_BAR = "/bars/{id}";
+    public static final String EDIT_BAR = "/bars/edit/{id}";
+    public static final String CREATE_BAR = "/bars/create";
+    public static final String DELETE_BAR = "/bars/delete/{id}";
 }
