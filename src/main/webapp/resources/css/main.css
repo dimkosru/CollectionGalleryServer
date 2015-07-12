@@ -1,0 +1,10 @@
+.error {
+    color: #ff0000;
+}
+th:first-of-type {
+    text-align: center;
+}
+th img{
+    max-width: 128px;
+    max-height: 128px;
+}

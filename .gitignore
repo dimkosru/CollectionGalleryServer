@@ -1,3 +1,4 @@
 .idea/
 target/
-resources/
+src/main/webapp/resources/tumbs/
+src/main/webapp/resources/original/

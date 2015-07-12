@@ -1,0 +1,32 @@
+<h2>Список шоколадок</h2>
+<form class="form-inline">
+Поиск: <input class="form-control" ng-model="query">
+Сотировка:
+<select class="form-control" ng-model="orderProp">
+    <option value="name">По названию</option>
+    <option value="date">По дате</option>
+    <option value="weight">По массе</option>
+</select></form>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Превью</th>
+        <th>Название</th>
+        <th>Изготовлено</th>
+        <th>Масса</th>
+        <th>Изготовитель</th>
+        <th>Комментарий</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="bar in bars | filter:query | orderBy:orderProp">
+        <th><a href="#/bars/{{bar.id}}"><img class="img-rounded" ng-src="{{'/resources/tumbs/'+bar.id+'.png'}}" alt="{{bar.name}}"/></a>
+        </th>
+        <th>{{bar.name}}</th>
+        <th>{{bar.date}}</th>
+        <th>{{bar.weight}}</th>
+        <th>{{bar.brand.name}}</th>
+        <th>{{bar.additional}}</th>
+    </tr>
+    </tbody>
+</table>
