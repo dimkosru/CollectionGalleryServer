@@ -4,7 +4,9 @@
 var phonecatApp = angular.module('collectionApp', [
     'ngRoute',
     'collectionControllers',
-    'collectionServices'
+    'collectionServices',
+    'angular.filter',
+    'ui.bootstrap'
 ]);
 
 phonecatApp.config(['$routeProvider',

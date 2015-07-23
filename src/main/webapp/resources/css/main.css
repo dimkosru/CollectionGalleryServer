@@ -1,10 +1,53 @@
 .error {
     color: #ff0000;
 }
-th:first-of-type {
+
+/* Angular */
+
+body{
+    background-color: #fafaf2;
+}
+
+.item {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    width: 138px;
+    height: 138px;
+    border: 1px solid transparent;
+
+
+    -moz-transition-property: -moz-transform, border, background;
+    -o-transition-property: -o-transform, border, background;
+    -webkit-transition-property: -webkit-transform, border, background;
+    transition-property: transform, border, background;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: white;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.item:hover {
+    background-color: rgb(255, 251, 226);
+    border: 1px solid #cccccc;
+}
+
+.item a{
+    width: 128px;
+    height: 128px;
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
 }
-th img{
+.item img{
     max-width: 128px;
     max-height: 128px;
+    border-radius: 2px;
 }

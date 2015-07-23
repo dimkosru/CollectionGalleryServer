@@ -21,18 +21,15 @@
   <script src="http://yastatic.net/angularjs/1.3.16/angular.js"></script>
   <script src="http://yastatic.net/angularjs/1.3.16/angular-route.js"></script>
   <script src="http://yastatic.net/angularjs/1.3.16/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.4/angular-filter.min.js"></script>
+  <script src="/resources/js/ui-bootstrap-tpls-0.13.1.min.js"></script>
   <script src="/resources/js/app.js"></script>
   <script src="/resources/js/controllers.js"></script>
   <script src="/resources/js/services.js"></script>
   <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 
-<body>
-<div class="container-fluid">
-  <div class="row">
-    <div ng-view class="col-xs-12 col-sm-12 col-md-12"></div>
-  </div>
-</div>
+<body ng-view>
 
 </body>
 </html>

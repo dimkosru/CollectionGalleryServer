@@ -28,7 +28,7 @@ public class BarDAOImpl implements BarDAO {
         String sql = "UPDATE bar SET name=?, date=?, weight=?, "
                 + "additional=?, idfactory=?  WHERE idbar=?";
         return jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand(), bar.getId()) != 0;
+                bar.getWeight(), bar.getAdditional(), bar.getBrand().getId(), bar.getId()) != 0;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class BarDAOImpl implements BarDAO {
         String sql = "INSERT INTO bar (name, date, weight, additional, idfactory)"
                 + " VALUES (?, ?, ?, ?, ?, ?)";
         return jdbcTemplate.update(sql, bar.getName(), bar.getDate(),
-                bar.getWeight(), bar.getAdditional(), bar.getBrand().getIdBrand()) != 0;
+                bar.getWeight(), bar.getAdditional(), bar.getBrand().getId()) != 0;
     }
 
     @Override

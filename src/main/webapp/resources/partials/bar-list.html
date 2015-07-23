@@ -1,34 +1,36 @@
-<h2>Список шоколадок</h2>
-<form class="form-inline">
-Поиск: <input class="form-control" ng-model="query">
-Сотировка:
-<select class="form-control" ng-model="orderProp">
-    <option value="name">По названию</option>
-    <option value="date">По дате</option>
-    <option value="weight">По массе</option>
-</select></form>
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Превью</th>
-        <th>Название</th>
-        <th>Изготовлено</th>
-        <th>Масса</th>
-        <th>Изготовитель</th>
-        <th>Комментарий</th>
-        <th>Действия</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="bar in bars | filter:query | orderBy:orderProp">
-        <th><a href="#/bars/{{bar.id}}"><img class="img-rounded" ng-src="{{'/resources/tumbs/'+bar.id+'.png'}}" alt="{{bar.name}}"/></a>
-        </th>
-        <th>{{bar.name}}</th>
-        <th>{{bar.date}}</th>
-        <th>{{bar.weight}}</th>
-        <th>{{bar.brand.name}}</th>
-        <th>{{bar.additional}}</th>
-        <th><button ng-click="deleteBar(bar.id)">Удалить</button></th>
-    </tr>
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-lg-10 col-md-push-1" >
+            <h2>Список шоколадок</h2>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-lg-8 col-md-push-1" >
+            <div class="item" ng-repeat="bar in bars | filter:{name:queryName} | filter:{weight:queryWeight||undefined}:true | filter:brandFilter | orderBy:orderProp">
+                <a href="#/bars/{{bar.id}}"><img ng-src="{{'/resources/tumbs/'+bar.id+'.png'}}" alt="{{bar.name}}"/></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-push-1">
+            <form class="form">
+            Сотировка:
+            <select class="form-control" ng-model="orderProp">
+                <option value="name">По названию</option>
+                <option value="date">По дате</option>
+                <option value="weight">По массе</option>
+            </select></form>
+            Поиск: <input class="form-control" ng-model="queryName">
+            Масса:
+            <select ng-model="queryWeight"
+                    ng-options="bar.weight as bar.weight for bar in bars | unique: 'weight' | orderBy:'weight'"
+                    class="form-control">
+                <option value="">С любой массой</option>
+            </select>
+            Бренд:
+            <div class="checkbox" ng-repeat="bar in bars | unique: 'brand'">
+                <label>
+                    <input ng-click="includeBrand(bar.brand.id)" type="checkbox">{{bar.brand.name}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

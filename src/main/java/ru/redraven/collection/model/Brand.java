@@ -4,20 +4,20 @@ package ru.redraven.collection.model;
  * Created by Дмитрий on 24.02.2015.
  */
 public class Brand {
-    private int idBrand;
+    private int id;
     private String name;
 
-    public Brand(int idBrand, String name){
-        this.idBrand=idBrand;
+    public Brand(int id, String name){
+        this.id = id;
         this.name=name;
     }
 
-    public int getIdBrand() {
-        return idBrand;
+    public int getId() {
+        return id;
     }
 
-    public void setIdBrand(int idBrand) {
-        this.idBrand = idBrand;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
